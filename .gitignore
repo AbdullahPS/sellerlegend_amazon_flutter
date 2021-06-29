@@ -46,9 +46,10 @@ app.*.map.json
 /android/app/release
 
 
-#Ignore android and ios folder
+#Ignore android,ios adn web  folder
 android/
 ios/
+web/
 #Ignore other folders and files
 .dart_tool
 .idea
