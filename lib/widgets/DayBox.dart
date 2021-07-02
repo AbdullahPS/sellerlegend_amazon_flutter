@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:sellerlegend/widgets/table.dart';
+import 'package:sellerlegend/widgets/productSummery.dart';
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
@@ -35,110 +37,10 @@ class _ProductState extends State<Product> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        '100 000',
-                        style: TextStyle(fontSize: 10),
-                      ),
-                      Text(
-                        'Ordered Product Sales',
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        '100 000',
-                        style: TextStyle(fontSize: 10),
-                      ),
-                      Text('Revenue'),
-                      Text(
-                        '100 000',
-                        style: TextStyle(fontSize: 10),
-                      ),
-                      Text('Estimated Profit'),
-                    ],
-                  ),
+                  child: productSummery(),
                 ),
                 Expanded(
-                  child: Table(
-                    border: TableBorder(
-                        horizontalInside: BorderSide(
-                            width: 2,
-                            color: Colors.blue,
-                            style: BorderStyle.solid)),
-                    children: [
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'Orders',
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'Units',
-                              textAlign: TextAlign.right,
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'Promo',
-                              textAlign: TextAlign.right,
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'Refunds',
-                              textAlign: TextAlign.right,
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'Net Margin',
-                              textAlign: TextAlign.right,
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                      TableRow(children: [
-                        Column(children: [
-                          Padding(
-                            child: Text(
-                              'ROI',
-                              textAlign: TextAlign.right,
-                            ),
-                            padding: EdgeInsets.only(top: 3),
-                          ),
-                        ]),
-                        Text('b')
-                      ]),
-                    ],
-                  ),
+                  child: mTable(),
                 ),
               ],
             ),
