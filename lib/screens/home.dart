@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
 
 class Home extends StatelessWidget {
+  static const routePathName = 'Home';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +41,9 @@ class Home extends StatelessWidget {
                 children: [
                   Center(child: Text('ALLE PRODUKTE')),
                   Center(
-                    child: FlatButton(
+                    child: TextButton(
                       child: Text('Click here'),
-                      onPressed: Navigator.of(context).pushNamed('testpage'),
+                      onPressed: () => Navigator.of(context).pushNamed('Test'),
                     ),
                   ),
                   Center(child: Text('TAB 3')),
