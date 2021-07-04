@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
+import 'package:sellerlegend/screens/allProducts.dart';
 
 class Home extends StatelessWidget {
   static const routePathName = 'Home';
@@ -27,19 +28,24 @@ class Home extends StatelessWidget {
           child: DefaultTabController(
             length: 3,
             child: Scaffold(
-              appBar: AppBar(
-                bottom: TabBar(
-                  tabs: [
-                    Tab(icon: Icon(Icons.directions_car)),
-                    Tab(icon: Icon(Icons.directions_transit)),
-                    Tab(icon: Icon(Icons.directions_bike)),
-                  ],
+              appBar: PreferredSize(
+                preferredSize: Size.fromHeight(70.0),
+                child: AppBar(
+                  bottom: TabBar(
+                    tabs: [
+                      Tab(icon: Icon(Icons.directions_car)),
+                      Tab(icon: Icon(Icons.directions_transit)),
+                      Tab(icon: Icon(Icons.directions_bike)),
+                    ],
+                  ),
+                  title: Text('Sanawat Sellerlegend'),
                 ),
-                title: Text('Sanawat Sellerlegend'),
               ),
               body: TabBarView(
                 children: [
-                  Center(child: Text('ALLE PRODUKTE')),
+                  ProductsScreen(
+                    title: 'MyHomePage',
+                  ),
                   Center(
                     child: TextButton(
                       child: Text('Click here'),
