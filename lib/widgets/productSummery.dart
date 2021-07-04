@@ -5,24 +5,39 @@ class productSummery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          '100 000',
-          style: TextStyle(fontSize: 10),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            '100 000',
+            style: TextStyle(fontSize: 10),
+          ),
         ),
-        Text(
-          'Ordered Product Sales',
-          textAlign: TextAlign.center,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'Ordered Product Sales',
+            textAlign: TextAlign.center,
+          ),
         ),
-        Text(
-          '100 000',
-          style: TextStyle(fontSize: 10),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            '100 000',
+            style: TextStyle(fontSize: 10),
+          ),
         ),
-        Text('Revenue'),
-        Text(
-          '100 000',
-          style: TextStyle(fontSize: 10),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text('Revenue'),
         ),
-        Text('Estimated Profit'),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            '100 000',
+            style: TextStyle(fontSize: 10),
+          ),
+        ),
+        FittedBox(fit: BoxFit.scaleDown, child: Text('Estimated Profit')),
       ],
     );
   }

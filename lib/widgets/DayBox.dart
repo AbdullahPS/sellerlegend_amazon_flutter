@@ -25,8 +25,14 @@ class _ProductState extends State<Product> {
         children: <Widget>[
           Expanded(
             child: ListTile(
-              title: Text('Today'),
-              subtitle: Text('von 1.1. bis 12.1'),
+              title: FittedBox(
+                child: Text('Today'),
+                fit: BoxFit.scaleDown,
+              ),
+              subtitle: FittedBox(
+                child: Text('von 1.1. bis 12.1'),
+                fit: BoxFit.scaleDown,
+              ),
               trailing: Icon(Icons.list),
             ),
           ),

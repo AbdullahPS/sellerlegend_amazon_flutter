@@ -11,73 +11,111 @@ class mTable extends StatelessWidget {
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'Orders',
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Orders',
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
             ),
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'Units',
-                textAlign: TextAlign.right,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Units',
+                  textAlign: TextAlign.right,
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
             ),
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'Promo',
-                textAlign: TextAlign.right,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Promo',
+                  textAlign: TextAlign.right,
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
             ),
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'Refunds',
-                textAlign: TextAlign.right,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Refunds',
+                  textAlign: TextAlign.right,
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
             ),
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'Net Margin',
-                textAlign: TextAlign.right,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Net Margin',
+                  textAlign: TextAlign.right,
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
-            ),
+            )
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
         TableRow(children: [
           Column(children: [
             Padding(
-              child: Text(
-                'ROI',
-                textAlign: TextAlign.right,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: FittedBox(
+                  child: Text(
+                    'ROI',
+                    textAlign: TextAlign.right,
+                  ),
+                ),
               ),
               padding: EdgeInsets.only(top: 3),
             ),
           ]),
-          Text('b')
+          FittedBox(
+            child: Text('b'),
+            fit: BoxFit.scaleDown,
+          )
         ]),
       ],
     );
