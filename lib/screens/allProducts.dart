@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 
 class ProductsScreen extends StatefulWidget {
-  ProductsScreen({Key? key, required this.title}) : super(key: key);
-  final String title;
+  ProductsScreen({Key? key}) : super(key: key);
+  //inal String title;
 
   @override
   _ProductsScreenState createState() => _ProductsScreenState();
@@ -26,9 +26,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      //itle: Text(widget.title),
+      appBar: AppBar(),
       body: _getBodyWidget(),
     );
   }

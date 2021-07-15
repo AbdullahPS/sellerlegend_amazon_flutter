@@ -10,20 +10,23 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
-          SizedBox(
-            height: 250,
-            child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: 15.0,
-                  mainAxisSpacing: 15.0,
-                  childAspectRatio: MediaQuery.of(context).size.width /
-                      (MediaQuery.of(context).size.height),
-                ),
-                itemCount: 4,
-                itemBuilder: (BuildContext context, int index) {
-                  return Product(index);
-                }),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+            child: SizedBox(
+              height: 250,
+              child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 25.0,
+                    mainAxisSpacing: 25.0,
+                    childAspectRatio: MediaQuery.of(context).size.width /
+                        (MediaQuery.of(context).size.height),
+                  ),
+                  itemCount: 4,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Product(index);
+                  }),
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height - 250,
@@ -45,9 +48,7 @@ class Home extends StatelessWidget {
                 ),
                 body: TabBarView(
                   children: [
-                    ProductsScreen(
-                      title: 'MyHomePage',
-                    ),
+                    ProductsScreen(),
                     Center(
                       child: TextButton(
                         child: Text('Click here'),

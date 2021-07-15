@@ -5,9 +5,15 @@ import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
 import '../utilities/dateCalculator.dart';
 
-class Product extends StatelessWidget {
+class Product extends StatefulWidget {
   Product(this.index);
   final int index;
+
+  @override
+  _ProductState createState() => _ProductState();
+}
+
+class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,12 +28,13 @@ class Product extends StatelessWidget {
           Expanded(
             child: ListTile(
               title: FittedBox(
-                child: Text(getWeekday(getDay().weekday + index)),
+                child: Text(getWeekday(getDay().weekday + widget.index)),
                 fit: BoxFit.scaleDown,
               ),
               subtitle: FittedBox(
-                child:
-                    Text(getDate(0 + index) + '   -   ' + getDate(1 + index)),
+                child: Text(getDate(0 + widget.index) +
+                    '   -   ' +
+                    getDate(1 + widget.index)),
                 fit: BoxFit.scaleDown,
               ),
               trailing: Icon(Icons.list),
