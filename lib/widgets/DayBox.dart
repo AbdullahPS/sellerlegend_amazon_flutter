@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
+import '../utilities/dateCalculator.dart';
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
@@ -26,11 +27,11 @@ class _ProductState extends State<Product> {
           Expanded(
             child: ListTile(
               title: FittedBox(
-                child: Text('Today'),
+                child: Text(getWeekday(getDay().weekday)),
                 fit: BoxFit.scaleDown,
               ),
               subtitle: FittedBox(
-                child: Text('von 1.1. bis 12.1'),
+                child: Text(getDate(0) + '-' + getDate(1)),
                 fit: BoxFit.scaleDown,
               ),
               trailing: Icon(Icons.list),
