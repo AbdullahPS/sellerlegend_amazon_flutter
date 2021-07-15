@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
                 ),
                 itemCount: 4,
                 itemBuilder: (BuildContext context, int index) {
-                  return Product();
+                  return Product(index);
                 }),
           ),
           SizedBox(
