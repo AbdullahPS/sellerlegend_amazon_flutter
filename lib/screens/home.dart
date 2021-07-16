@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
 import 'package:sellerlegend/screens/allProducts.dart';
+import 'statistics.dart';
 
 class Home extends StatelessWidget {
   static const routePathName = 'Home';
@@ -27,14 +28,13 @@ class Home extends StatelessWidget {
                   }),
             ),
           ),
-          SizedBox(),
           SizedBox(
-            height: MediaQuery.of(context).size.height - 250,
+            height: 2000,
             child: DefaultTabController(
               length: 3,
               child: Scaffold(
                 appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(70.0),
+                  preferredSize: Size.fromHeight(75.0),
                   child: AppBar(
                     bottom: TabBar(
                       tabs: [
@@ -49,6 +49,7 @@ class Home extends StatelessWidget {
                 body: TabBarView(
                   children: [
                     ProductsScreen(),
+                    StatisticsTab(),
                     Center(
                       child: TextButton(
                         child: Text('Click here'),
@@ -56,7 +57,6 @@ class Home extends StatelessWidget {
                             Navigator.of(context).pushNamed('Test'),
                       ),
                     ),
-                    Center(child: Text('TAB 3')),
                   ],
                 ),
               ),
