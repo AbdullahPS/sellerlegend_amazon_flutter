@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:quiver/time.dart';
 
 DateTime getDay() {
   return new DateTime.now();
@@ -7,8 +8,38 @@ DateTime getDay() {
 String getDate(int number) {
   DateTime now = DateTime(getDay().year, getDay().month, getDay().day + number);
 
-  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final DateFormat formatter = DateFormat('E,dd-MM-yyyy');
   return formatter.format(now);
+}
+
+String getMonth() {
+  DateTime now = DateTime(getDay().year, getDay().month, getDay().day);
+  DateTime firstDay = DateTime(getDay().year, getDay().month, 1);
+
+  final DateFormat formatter = DateFormat('E,dd-MM-yyyy');
+  return formatter.format(firstDay) + '  -  ' + formatter.format(now);
+}
+
+String lastMonth() {
+  DateTime firstDay = DateTime(getDay().year, getDay().month - 1, 1);
+  DateTime lastDay = DateTime(getDay().year, getDay().month - 1,
+      daysInMonth(getDay().year, getDay().month) - 1);
+  final DateFormat formatter = DateFormat('E-yyyy-MM-dd');
+  return formatter.format(firstDay) + '  -  ' + formatter.format(lastDay);
+}
+
+List<String> cardArray = ['Today', 'Yesterday', 'This Month', 'Last Month'];
+
+String getDateFromIndex(int index) {
+  String date = '';
+  if (index == 0 || index == 1) {
+    date = getDate(-index);
+  } else if (index == 2) {
+    date = getMonth();
+  } else if (index == 3) {
+    date = lastMonth();
+  }
+  return date;
 }
 
 String getWeekday(int weekNum) {

@@ -28,13 +28,11 @@ class _ProductState extends State<Product> {
           Expanded(
             child: ListTile(
               title: FittedBox(
-                child: Text(getWeekday(getDay().weekday + widget.index)),
+                child: Text(cardArray[widget.index]),
                 fit: BoxFit.scaleDown,
               ),
               subtitle: FittedBox(
-                child: Text(getDate(0 + widget.index) +
-                    '   -   ' +
-                    getDate(1 + widget.index)),
+                child: Text(getDateFromIndex(widget.index)),
                 fit: BoxFit.scaleDown,
               ),
               trailing: Icon(Icons.list),
