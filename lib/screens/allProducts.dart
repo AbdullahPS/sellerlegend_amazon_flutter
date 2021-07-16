@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
+import '../models/product.dart';
 
 class ProductsScreen extends StatefulWidget {
   ProductsScreen({Key? key}) : super(key: key);
-  //inal String title;
 
   @override
   _ProductsScreenState createState() => _ProductsScreenState();
@@ -19,7 +19,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   @override
   void initState() {
-    user.initData(100);
+    dummy.initData(100);
     super.initState();
   }
 
@@ -33,16 +33,16 @@ class _ProductsScreenState extends State<ProductsScreen> {
   }
 
   Widget _getBodyWidget() {
-    final ScreenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       child: HorizontalDataTable(
-        leftHandSideColumnWidth: ScreenWidth / 2,
-        rightHandSideColumnWidth: ScreenWidth / 2,
+        leftHandSideColumnWidth: screenWidth / 2,
+        rightHandSideColumnWidth: screenWidth / 2,
         isFixedHeader: true,
         headerWidgets: _getTitleWidget(),
         leftSideItemBuilder: _generateFirstColumnRow,
         rightSideItemBuilder: _generateRightHandSideColumnRow,
-        itemCount: user.userInfo.length,
+        itemCount: dummy.productInfo.length,
         rowSeparatorWidget: const Divider(
           color: Colors.black54,
           height: 1.0,
@@ -86,7 +86,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         onPressed: () {
           sortType = sortName;
           isAscending = !isAscending;
-          user.sortName(isAscending);
+          dummy.sortName(isAscending);
           setState(() {});
         },
       ),
@@ -101,13 +101,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
         onPressed: () {
           sortType = sortStatus;
           isAscending = !isAscending;
-          user.sortStatus(isAscending);
+          dummy.sortStatus(isAscending);
           setState(() {});
         },
       ),
-      _getTitleItemWidget('Phone', 200),
-      _getTitleItemWidget('Register', 100),
-      _getTitleItemWidget('Termination', 200),
+      _getTitleItemWidget('Asin', 200),
+      _getTitleItemWidget('SKU', 100),
+      _getTitleItemWidget('Price', 200),
     ];
   }
 
@@ -123,7 +123,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
-      child: Text(user.userInfo[index].name),
+      child: Text(dummy.productInfo[index].name),
       width: 100,
       height: 52,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -138,12 +138,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
           child: Row(
             children: <Widget>[
               Icon(
-                  user.userInfo[index].status
+                  dummy.productInfo[index].status
                       ? Icons.notifications_off
                       : Icons.notifications_active,
-                  color:
-                      user.userInfo[index].status ? Colors.red : Colors.green),
-              Text(user.userInfo[index].status ? 'Disabled' : 'Active')
+                  color: dummy.productInfo[index].status
+                      ? Colors.red
+                      : Colors.green),
+              Text(dummy.productInfo[index].status ? 'Disabled' : 'Active')
             ],
           ),
           width: 100,
@@ -152,21 +153,21 @@ class _ProductsScreenState extends State<ProductsScreen> {
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(user.userInfo[index].phone),
+          child: Text(dummy.productInfo[index].sku),
           width: 200,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(user.userInfo[index].registerDate),
+          child: Text(dummy.productInfo[index].asin),
           width: 100,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(user.userInfo[index].terminationDate),
+          child: Text(dummy.productInfo[index].price),
           width: 200,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -177,24 +178,32 @@ class _ProductsScreenState extends State<ProductsScreen> {
   }
 }
 
-User user = User();
+//Product product = Product();
+DummyProduct dummy = DummyProduct();
 
-class User {
-  List<UserInfo> userInfo = [];
+class DummyProduct {
+  List<Product> productInfo = [];
 
   void initData(int size) {
     for (int i = 0; i < size; i++) {
-      userInfo.add(UserInfo(
-          "User_$i", i % 3 == 0, '+001 9999 9999', '2019-01-01', 'N/A'));
+      productInfo.add(
+        Product(
+          "Product_$i",
+          i % 3 == 0,
+          'x Dollar',
+          'SKU_$i',
+          'Asin_$i',
+        ),
+      );
     }
   }
 
   ///
   /// Single sort, sort Name's id
   void sortName(bool isAscending) {
-    userInfo.sort((a, b) {
-      int aId = int.tryParse(a.name.replaceFirst('User_', '')) ?? 0;
-      int bId = int.tryParse(b.name.replaceFirst('User_', '')) ?? 0;
+    productInfo.sort((a, b) {
+      int aId = int.tryParse(a.name.replaceFirst('Product_', '')) ?? 0;
+      int bId = int.tryParse(b.name.replaceFirst('Product_', '')) ?? 0;
       return (aId - bId) * (isAscending ? 1 : -1);
     });
   }
@@ -202,10 +211,10 @@ class User {
   ///
   /// sort with Status and Name as the 2nd Sort
   void sortStatus(bool isAscending) {
-    userInfo.sort((a, b) {
+    productInfo.sort((a, b) {
       if (a.status == b.status) {
-        int aId = int.tryParse(a.name.replaceFirst('User_', '')) ?? 0;
-        int bId = int.tryParse(b.name.replaceFirst('User_', '')) ?? 0;
+        int aId = int.tryParse(a.name.replaceFirst('Product_', '')) ?? 0;
+        int bId = int.tryParse(b.name.replaceFirst('Product_', '')) ?? 0;
         return (aId - bId);
       } else if (a.status) {
         return isAscending ? 1 : -1;
@@ -214,15 +223,4 @@ class User {
       }
     });
   }
-}
-
-class UserInfo {
-  String name;
-  bool status;
-  String phone;
-  String registerDate;
-  String terminationDate;
-
-  UserInfo(this.name, this.status, this.phone, this.registerDate,
-      this.terminationDate);
 }

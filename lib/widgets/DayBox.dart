@@ -45,10 +45,10 @@ class _ProductState extends State<Product> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: productSummery(),
+                  child: ProductSummery(),
                 ),
                 Expanded(
-                  child: mTable(),
+                  child: BoxTable(),
                 ),
               ],
             ),

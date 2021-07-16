@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
 import 'package:sellerlegend/screens/allProducts.dart';
-import '../models/mDayBox.dart';
 
 class Home extends StatelessWidget {
   static const routePathName = 'Home';
@@ -28,6 +27,7 @@ class Home extends StatelessWidget {
                   }),
             ),
           ),
+          SizedBox(),
           SizedBox(
             height: MediaQuery.of(context).size.height - 250,
             child: DefaultTabController(
@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                   child: AppBar(
                     bottom: TabBar(
                       tabs: [
-                        Tab(icon: Icon(Icons.directions_car)),
+                        Tab(icon: Icon(Icons.border_all)),
                         Tab(icon: Icon(Icons.directions_transit)),
                         Tab(icon: Icon(Icons.directions_bike)),
                       ],

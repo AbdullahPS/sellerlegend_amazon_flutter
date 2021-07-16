@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class mTable extends StatelessWidget {
+class BoxTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
