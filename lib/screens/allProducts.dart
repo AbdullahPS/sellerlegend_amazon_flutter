@@ -19,7 +19,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   @override
   void initState() {
-    dummy.initData(100);
+    if (dummy.productInfo.isEmpty) dummy.initData(100);
     super.initState();
   }
 
@@ -123,7 +123,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
-      child: Text(dummy.productInfo[index].name),
+      child: ListTile(
+        leading: Image.network(
+            'https://m.media-amazon.com/images/I/61+4FFxW6iS._AC_SL1284_.jpg'),
+        title: Text(dummy.productInfo[index].name),
+      ),
       width: 100,
       height: 52,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),

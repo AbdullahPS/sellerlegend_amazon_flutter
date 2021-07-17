@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class ListBuilder extends StatelessWidget {
   ListBuilder(this.content);
@@ -15,18 +16,31 @@ class ListBuilder extends StatelessWidget {
         // display each item of the product list
         itemBuilder: (context, index) {
           return Card(
+            color: Color(0xFF212332),
+            elevation: 4, // Change this
+            shadowColor: Colors.red, // Change this
             // In many cases, the key isn't mandatory
             key: UniqueKey(),
             child: Padding(
                 padding: EdgeInsets.all(1),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(
                       Icons.architecture,
                       size: 15,
                       color: Colors.red,
                     ),
-                    Text(content[index]),
+                    Text(
+                      content[index],
+                      style: TextStyle(color: Colors.white70),
+                    ),
+                    Spacer(),
+                    Text(
+                      'value',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(color: Colors.white70),
+                    )
                   ],
                 )),
           );

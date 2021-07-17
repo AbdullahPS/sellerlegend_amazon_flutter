@@ -9,12 +9,18 @@ class ListBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Container(
-          child: Text(title),
-        ),
-        ListBuilder(mList),
-      ]),
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.yellow),
+              ),
+            ),
+            ListBuilder(mList),
+          ]),
     );
   }
 }

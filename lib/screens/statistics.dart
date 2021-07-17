@@ -24,9 +24,10 @@ class _StatisticsTabState extends State<StatisticsTab> {
             padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
             child: SizedBox(
               child: Container(
-                width: 500,
-                child: ListBox('Revenue', ['a', 'b']),
+                width: 700,
+                child: ListBox('Revenue', ['Promo Sales', 'Organic Sales']),
                 decoration: BoxDecoration(
+                  color: Color(0xFF2A2D3E),
                   border: Border.all(
                     color: Colors.black,
                     width: 2,
@@ -43,11 +44,11 @@ class _StatisticsTabState extends State<StatisticsTab> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+            padding: EdgeInsets.fromLTRB(15, 2, 15, 15),
             child: SizedBox(
               child: Container(
                 //height: 300,
-                width: 500,
+                width: 700,
                 child: ListBox('Costs', [
                   'Promotions',
                   'Cost of Goods',
@@ -59,6 +60,7 @@ class _StatisticsTabState extends State<StatisticsTab> {
                   'Miscellaneous Cost',
                 ]),
                 decoration: BoxDecoration(
+                  color: Color(0xFF212332),
                   border: Border.all(
                     color: Colors.black,
                     width: 2,
