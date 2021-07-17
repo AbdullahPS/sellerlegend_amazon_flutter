@@ -24,6 +24,7 @@ class ListBuilder extends StatelessWidget {
                     Icon(
                       Icons.architecture,
                       size: 15,
+                      color: Colors.red,
                     ),
                     Text(content[index]),
                   ],

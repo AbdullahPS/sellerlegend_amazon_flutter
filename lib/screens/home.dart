@@ -31,16 +31,23 @@ class Home extends StatelessWidget {
           SizedBox(
             height: 2000,
             child: DefaultTabController(
-              length: 3,
+              length: 10,
               child: Scaffold(
                 appBar: PreferredSize(
                   preferredSize: Size.fromHeight(75.0),
                   child: AppBar(
                     bottom: TabBar(
                       tabs: [
-                        Tab(icon: Icon(Icons.border_all)),
-                        Tab(icon: Icon(Icons.directions_transit)),
-                        Tab(icon: Icon(Icons.directions_bike)),
+                        Tab(text: 'All Products'),
+                        Tab(text: 'Dashboard'),
+                        Tab(text: 'Inventory'),
+                        Tab(text: 'Sales'),
+                        Tab(text: 'Customers'),
+                        Tab(text: 'Refund Manager'),
+                        Tab(text: 'Reports'),
+                        Tab(text: 'PPC'),
+                        Tab(text: 'Quality KPI'),
+                        Tab(text: 'Warehouse List'),
                       ],
                     ),
                     title: Text('Sanawat Sellerlegend'),
@@ -49,6 +56,13 @@ class Home extends StatelessWidget {
                 body: TabBarView(
                   children: [
                     ProductsScreen(),
+                    StatisticsTab(),
+                    StatisticsTab(),
+                    StatisticsTab(),
+                    StatisticsTab(),
+                    StatisticsTab(),
+                    StatisticsTab(),
+                    StatisticsTab(),
                     StatisticsTab(),
                     Center(
                       child: TextButton(
