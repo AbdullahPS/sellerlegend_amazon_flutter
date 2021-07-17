@@ -18,7 +18,16 @@ class ListBuilder extends StatelessWidget {
             // In many cases, the key isn't mandatory
             key: UniqueKey(),
             child: Padding(
-                padding: EdgeInsets.all(1), child: Text(content[index])),
+                padding: EdgeInsets.all(1),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.architecture,
+                      size: 15,
+                    ),
+                    Text(content[index]),
+                  ],
+                )),
           );
         });
   }

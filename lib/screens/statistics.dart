@@ -20,54 +20,57 @@ class _StatisticsTabState extends State<StatisticsTab> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            child: Container(
-              width: 250,
-              child: ListBox('Revenue', ['a', 'b']),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: 5,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  new BoxShadow(
-                    color: Colors.yellow.shade800,
-                    offset: new Offset(10.0, 10.0),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+            child: SizedBox(
+              child: Container(
+                width: 500,
+                child: ListBox('Revenue', ['a', 'b']),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
                   ),
-                ],
+                  borderRadius: BorderRadius.circular(10),
+                  /*  boxShadow: [
+                    new BoxShadow(
+                      color: Colors.yellow.shade800,
+                      offset: new Offset(10.0, 10.0),
+                    ),
+                  ],*/
+                ),
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            child: Container(
-              //height: 300,
-              width: 250,
-              child: ListBox('Costs', [
-                'Promotions',
-                'Cost of Goods',
-                'Amazon Fees',
-                'Remitting Fax',
-                'Sponsored Product Costs',
-                'Sponsored Brand Cost',
-                'Operating Expenses',
-                'Miscellaneous Cost',
-              ]),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: 5,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  new BoxShadow(
-                    color: Color(0xffffc947),
-                    offset: new Offset(10.0, 10.0),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+            child: SizedBox(
+              child: Container(
+                //height: 300,
+                width: 500,
+                child: ListBox('Costs', [
+                  'Promotions',
+                  'Cost of Goods',
+                  'Amazon Fees',
+                  'Remitting Fax',
+                  'Sponsored Product Costs',
+                  'Sponsored Brand Cost',
+                  'Operating Expenses',
+                  'Miscellaneous Cost',
+                ]),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
                   ),
-                ],
+                  borderRadius: BorderRadius.circular(10),
+                  /*  boxShadow: [
+                    new BoxShadow(
+                      color: Color(0xffffc947),
+                      offset: new Offset(10.0, 10.0),
+                    ),
+                  ],*/
+                ),
               ),
             ),
           ),
