@@ -9,35 +9,45 @@ class ProductSummery extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Text(
             '100 000',
-            style: TextStyle(fontSize: 10),
+            style: TextStyle(
+              fontSize: 10,
+              color: Colors.white70,
+            ),
           ),
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
-            'Ordered Product Sales',
-            textAlign: TextAlign.center,
-          ),
-        ),
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            '100 000',
-            style: TextStyle(fontSize: 10),
-          ),
-        ),
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text('Revenue'),
+          child: Text('Ordered Product Sales',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white70)),
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
             '100 000',
-            style: TextStyle(fontSize: 10),
+            style: TextStyle(fontSize: 10, color: Colors.white70),
           ),
         ),
-        FittedBox(fit: BoxFit.scaleDown, child: Text('Estimated Profit')),
+        FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text('Revenue', style: TextStyle(color: Colors.white70))),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            '100 000',
+            style: TextStyle(
+              fontSize: 10,
+              color: Colors.white70,
+            ),
+          ),
+        ),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'Estimated Profit',
+            style: TextStyle(color: Colors.white70),
+          ),
+        ),
       ],
     );
   }
