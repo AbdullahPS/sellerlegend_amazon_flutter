@@ -48,8 +48,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
           height: 1.0,
           thickness: 0.0,
         ),
-        leftHandSideColBackgroundColor: Color(0xFFFFFFFF),
-        rightHandSideColBackgroundColor: Color(0xFFFFFFFF),
+        leftHandSideColBackgroundColor: Color(0xFF2A2D3E),
+        rightHandSideColBackgroundColor: Color(0xFF2A2D3E),
         verticalScrollbarStyle: const ScrollbarStyle(
           isAlwaysShown: true,
           thickness: 4.0,
@@ -113,7 +113,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   Widget _getTitleItemWidget(String label, double width) {
     return Container(
-      child: Text(label, style: TextStyle(fontWeight: FontWeight.bold)),
+      child: Text(label,
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70)),
       width: width,
       height: 56,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -126,7 +127,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
       child: ListTile(
         leading: Image.network(
             'https://m.media-amazon.com/images/I/61+4FFxW6iS._AC_SL1284_.jpg'),
-        title: Text(dummy.productInfo[index].name),
+        title: Text(
+          dummy.productInfo[index].name,
+          style: TextStyle(color: Colors.white70),
+        ),
       ),
       width: 100,
       height: 52,
@@ -148,7 +152,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   color: dummy.productInfo[index].status
                       ? Colors.red
                       : Colors.green),
-              Text(dummy.productInfo[index].status ? 'Disabled' : 'Active')
+              Text(
+                dummy.productInfo[index].status ? 'Disabled' : 'Active',
+                style: TextStyle(color: Colors.white70),
+              )
             ],
           ),
           width: 100,
@@ -157,21 +164,30 @@ class _ProductsScreenState extends State<ProductsScreen> {
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(dummy.productInfo[index].sku),
+          child: Text(
+            dummy.productInfo[index].sku,
+            style: TextStyle(color: Colors.white70),
+          ),
           width: 200,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(dummy.productInfo[index].asin),
+          child: Text(
+            dummy.productInfo[index].asin,
+            style: TextStyle(color: Colors.white70),
+          ),
           width: 100,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(dummy.productInfo[index].price),
+          child: Text(
+            dummy.productInfo[index].price,
+            style: TextStyle(color: Colors.white70),
+          ),
           width: 200,
           height: 52,
           padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
