@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
 import '../utilities/dateCalculator.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class Product extends StatefulWidget {
   Product(this.index);
@@ -14,8 +16,51 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
+  DateTimeRange dateRange = DateTimeRange(
+    start: DateTime.now(),
+    //show initially until a 30 day range from todays date
+    end: DateTime.now().add(Duration(days: 30)),
+  );
   @override
   Widget build(BuildContext context) {
+    Future<void> showDateDialog(BuildContext context) async {
+      final initialDate = DateTimeRange(
+        start: DateTime.now(),
+        //show initially until a 30 day range from todays date
+        end: DateTime.now().add(Duration(days: 30)),
+      );
+      final newDateRange = await showDateRangePicker(
+        context: context,
+        //allow user only to pick 3 years in the past
+        firstDate: DateTime(DateTime.now().year - 3),
+        lastDate: DateTime(DateTime.now().year),
+        builder: (context, child) {
+          return Theme(
+            data: ThemeData.light(),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 50.0),
+                  child: Container(
+                    height: 450,
+                    width: 450,
+                    child: child,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+        // initialDate: DateTime.now(),
+      );
+      if (newDateRange == null) return;
+
+      setState(() {
+        dateRange = newDateRange;
+      });
+      print(dateRange);
+    }
+
     return Container(
       child: Card(
         color: Color(0xFF212332),
@@ -49,9 +94,12 @@ class _ProductState extends State<Product> {
                     ),
                     itemBuilder: (context) => [
                           PopupMenuItem(
-                            child: Text(
-                              "Change Date Range",
-                              style: TextStyle(fontSize: 10),
+                            child: TextButton(
+                              child: Text(
+                                "Change Date Range",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                              onPressed: () => showDateDialog(context),
                             ),
                             value: 1,
                           ),
