@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 import '../models/product.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class ProductsScreen extends StatefulWidget {
   ProductsScreen({Key? key}) : super(key: key);
@@ -23,12 +24,27 @@ class _ProductsScreenState extends State<ProductsScreen> {
     super.initState();
   }
 
+  final tab = new TabBar(tabs: <Tab>[
+    new Tab(text: 'All Products'),
+    new Tab(text: 'All Products'),
+    new Tab(text: 'All Products'),
+  ]);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //itle: Text(widget.title),
-      appBar: AppBar(),
-      body: _getBodyWidget(),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: new PreferredSize(
+          preferredSize: tab.preferredSize,
+          child: new Card(
+            elevation: 26.0,
+            color: Theme.of(context).primaryColor,
+            child: tab,
+          ),
+        ), //itle: Text(widget.title),
+
+        body: _getBodyWidget(),
+      ),
     );
   }
 
