@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:intl/intl.dart';
 import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
 import '../utilities/dateCalculator.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class Product extends StatefulWidget {
   Product(this.index);
@@ -87,30 +85,32 @@ class _ProductState extends State<Product> {
                       style: TextStyle(color: Colors.yellow[700])),
                   fit: BoxFit.scaleDown,
                 ),
-                trailing: PopupMenuButton(
-                    child: Icon(
-                      Icons.list,
-                      color: Colors.white70,
-                    ),
-                    itemBuilder: (context) => [
-                          PopupMenuItem(
-                            child: TextButton(
-                              child: Text(
-                                "Change Date Range",
-                                style: TextStyle(fontSize: 10),
+                trailing: widget.index == 2 || widget.index == 3
+                    ? PopupMenuButton(
+                        child: Icon(
+                          Icons.list,
+                          color: Colors.white70,
+                        ),
+                        itemBuilder: (context) => [
+                              PopupMenuItem(
+                                child: TextButton(
+                                  child: Text(
+                                    "Change Date Range",
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  onPressed: () => showDateDialog(context),
+                                ),
+                                value: 1,
                               ),
-                              onPressed: () => showDateDialog(context),
-                            ),
-                            value: 1,
-                          ),
-                          PopupMenuItem(
-                            child: Text(
-                              "Make something else",
-                              style: TextStyle(fontSize: 10),
-                            ),
-                            value: 2,
-                          )
-                        ]),
+                              PopupMenuItem(
+                                child: Text(
+                                  "Make something else",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                value: 2,
+                              )
+                            ])
+                    : null,
               ),
             ),
             Expanded(
