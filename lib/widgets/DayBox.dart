@@ -19,9 +19,24 @@ class _ProductState extends State<Product> {
     //show initially until a 30 day range from todays date
     end: DateTime.now().add(Duration(days: 30)),
   );
+  bool cardThreeChanged = false;
+  bool cardFourChanged = false;
+  String newDate = '';
+
   @override
   Widget build(BuildContext context) {
-    Future<void> showDateDialog(BuildContext context) async {
+    String getNewDate(DateTimeRange d) {
+      List<String> splittedArray = d.toString().split(" - ");
+      //print(splittedArray);
+      splittedArray.forEach((element) {
+        print(element.replaceAll('00:00:00.000', ''));
+        element.replaceAll('00:00:00.000', '');
+      });
+
+      return splittedArray[0] = splittedArray[1];
+    }
+
+    Future<void> showDateDialog(BuildContext context, int index) async {
       final initialDate = DateTimeRange(
         start: DateTime.now(),
         //show initially until a 30 day range from todays date
@@ -52,11 +67,36 @@ class _ProductState extends State<Product> {
         // initialDate: DateTime.now(),
       );
       if (newDateRange == null) return;
+      dateRange = newDateRange;
+      String s = getNewDate(dateRange);
 
       setState(() {
+        newDate = s;
         dateRange = newDateRange;
+        if (widget.index == 2) cardThreeChanged = true;
+        if (widget.index == 3) cardFourChanged = true;
       });
-      print(dateRange);
+      //print(dateRange);
+
+      /*mDate first= new mDate(year, month, day);
+      mDate second= new mDate(year, month, day);*/
+    }
+
+    String printHeadLine(int index) {
+      if (index == 0 || index == 1)
+        return cardArray[index];
+      else if (index == 2) {
+        if (!cardThreeChanged)
+          return cardArray[index];
+        else
+          return newDate;
+      } else if (index == 3) {
+        if (!cardFourChanged)
+          return cardArray[index];
+        else
+          return newDate;
+      }
+      return '';
     }
 
     return Container(
@@ -75,7 +115,7 @@ class _ProductState extends State<Product> {
               child: ListTile(
                 title: FittedBox(
                   child: Text(
-                    cardArray[widget.index],
+                    printHeadLine(widget.index),
                     style: TextStyle(color: Colors.yellow),
                   ),
                   fit: BoxFit.scaleDown,
@@ -98,7 +138,8 @@ class _ProductState extends State<Product> {
                                     "Change Date Range",
                                     style: TextStyle(fontSize: 10),
                                   ),
-                                  onPressed: () => showDateDialog(context),
+                                  onPressed: () =>
+                                      showDateDialog(context, widget.index),
                                 ),
                                 value: 1,
                               ),
@@ -166,4 +207,11 @@ class _ProductState extends State<Product> {
         Color color,
         bool captureInheritedThemes: true}
       )*/
+}
+
+class mDate {
+  final int year;
+  final int month;
+  final int day;
+  mDate(this.year, this.month, this.day);
 }

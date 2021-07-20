@@ -12,6 +12,15 @@ String getDate(int number) {
   return formatter.format(now);
 }
 
+/*String getDayFromString(List<String> rangeArray) {
+  DateTime firstRange = DateTime(getDay().rangeArray[0].year,
+      getDay().rangeArray[0].month, getDay().rangeArray[0].day);
+  DateTime secondRange = DateTime(getDay().rangeArray[1].year,
+      getDay().rangeArray[1].month, getDay().rangeArray[1].day);
+  final DateFormat formatter = DateFormat('E,dd-MM-yyyy');
+  return formatter.format(firstRange) + '  -  ' + formatter.format(secondRange);
+}*/
+
 String getMonth() {
   DateTime now = DateTime(getDay().year, getDay().month, getDay().day);
   DateTime firstDay = DateTime(getDay().year, getDay().month, 1);
