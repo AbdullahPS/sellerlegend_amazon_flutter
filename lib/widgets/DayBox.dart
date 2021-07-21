@@ -42,7 +42,6 @@ class _ProductState extends State<Product> {
 
     String getNewDate(DateTimeRange d) {
       List<String> splittedArray = d.toString().split(" - ");
-      print(splittedArray);
       List<DateTime> removedZerosArray = splittedArray.map((element) {
         element.replaceAll('00:00:00.000', '');
         return DateTime.parse(element);
@@ -52,11 +51,13 @@ class _ProductState extends State<Product> {
     }
 
     RevertToDefault() {
-      print('Reverted to default');
+      setState(() {
+        if (widget.index == 2) cardThreeChanged = false;
+        if (widget.index == 3) cardFourChanged = false;
+      });
     }
 
     Future<void> showDateDialog(BuildContext context, int index) async {
-      print("am here");
       final newDateRange = await showDateRangePicker(
         context: context,
         //allow user only to pick 3 years in the past
@@ -91,7 +92,6 @@ class _ProductState extends State<Product> {
         if (widget.index == 2) cardThreeChanged = true;
         if (widget.index == 3) cardFourChanged = true;
       });
-      print(dateRange);
 
       /*mDate first= new mDate(year, month, day);
       mDate second= new mDate(year, month, day);*/
