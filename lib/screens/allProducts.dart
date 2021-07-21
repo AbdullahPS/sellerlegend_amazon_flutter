@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
-import '../models/product.dart';
+import 'package:sellerlegend/models/product.dart';
+import '../models/productdummyList.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class ProductsScreen extends StatefulWidget {
@@ -18,9 +19,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
   bool isAscending = true;
   int sortType = sortName;
 
+  final controller =
+      new TextEditingController(); //controller for search text field
+
   @override
   void initState() {
-    if (dummy.productInfo.isEmpty) dummy.initData(100);
+    if (DummyProduct.productInfo.isEmpty) DummyProduct.initData(100);
     super.initState();
   }
 
@@ -73,7 +77,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           headerWidgets: _getTitleWidget(),
           leftSideItemBuilder: _generateFirstColumnRow,
           rightSideItemBuilder: _generateRightHandSideColumnRow,
-          itemCount: dummy.productInfo.length,
+          itemCount: DummyProduct.productInfo.length,
           rowSeparatorWidget: const Divider(
             color: Colors.black54,
             height: 1.0,
@@ -118,7 +122,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         onPressed: () {
           sortType = sortName;
           isAscending = !isAscending;
-          dummy.sortName(isAscending);
+          DummyProduct.sortName(isAscending);
           setState(() {});
         },
       ),
@@ -133,7 +137,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         onPressed: () {
           sortType = sortStatus;
           isAscending = !isAscending;
-          dummy.sortStatus(isAscending);
+          DummyProduct.sortStatus(isAscending);
           setState(() {});
         },
       ),
@@ -160,7 +164,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         leading: Image.network(
             'https://m.media-amazon.com/images/I/61+4FFxW6iS._AC_SL1284_.jpg'),
         title: SelectableText(
-          dummy.productInfo[index].name,
+          DummyProduct.productInfo[index].name,
           style: TextStyle(color: Colors.white70),
         ),
       ),
@@ -228,14 +232,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
           child: Row(
             children: <Widget>[
               Icon(
-                  dummy.productInfo[index].status
+                  DummyProduct.productInfo[index].status
                       ? Icons.notifications_off
                       : Icons.notifications_active,
-                  color: dummy.productInfo[index].status
+                  color: DummyProduct.productInfo[index].status
                       ? Colors.red
                       : Colors.green),
               SelectableText(
-                dummy.productInfo[index].status ? 'Disabled' : 'Active',
+                DummyProduct.productInfo[index].status ? 'Disabled' : 'Active',
                 style: TextStyle(color: Colors.white70),
               )
             ],
@@ -247,7 +251,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         Container(
           child: SelectableText(
-            dummy.productInfo[index].sku,
+            DummyProduct.productInfo[index].sku,
             style: TextStyle(color: Colors.white70),
           ),
           width: 200,
@@ -257,7 +261,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         Container(
           child: SelectableText(
-            dummy.productInfo[index].asin,
+            DummyProduct.productInfo[index].asin,
             style: TextStyle(color: Colors.white70),
           ),
           width: 100,
@@ -267,7 +271,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         Container(
           child: SelectableText(
-            dummy.productInfo[index].price,
+            DummyProduct.productInfo[index].price,
             style: TextStyle(color: Colors.white70),
           ),
           width: 200,
@@ -277,52 +281,5 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
       ],
     );
-  }
-}
-
-//Product product = Product();
-DummyProduct dummy = DummyProduct();
-
-class DummyProduct {
-  List<Product> productInfo = [];
-
-  void initData(int size) {
-    for (int i = 0; i < size; i++) {
-      productInfo.add(
-        Product(
-          "Product_$i",
-          i % 3 == 0,
-          'x Dollar',
-          'SKU_$i',
-          'Asin_$i',
-        ),
-      );
-    }
-  }
-
-  ///
-  /// Single sort, sort Name's id
-  void sortName(bool isAscending) {
-    productInfo.sort((a, b) {
-      int aId = int.tryParse(a.name.replaceFirst('Product_', '')) ?? 0;
-      int bId = int.tryParse(b.name.replaceFirst('Product_', '')) ?? 0;
-      return (aId - bId) * (isAscending ? 1 : -1);
-    });
-  }
-
-  ///
-  /// sort with Status and Name as the 2nd Sort
-  void sortStatus(bool isAscending) {
-    productInfo.sort((a, b) {
-      if (a.status == b.status) {
-        int aId = int.tryParse(a.name.replaceFirst('Product_', '')) ?? 0;
-        int bId = int.tryParse(b.name.replaceFirst('Product_', '')) ?? 0;
-        return (aId - bId);
-      } else if (a.status) {
-        return isAscending ? 1 : -1;
-      } else {
-        return isAscending ? -1 : 1;
-      }
-    });
   }
 }

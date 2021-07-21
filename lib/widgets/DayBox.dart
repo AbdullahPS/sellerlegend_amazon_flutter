@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:intl/intl.dart';
 import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
 import '../utilities/dateCalculator.dart';
@@ -50,7 +49,7 @@ class _ProductState extends State<Product> {
       return getDayFromString(removedZerosArray);
     }
 
-    RevertToDefault() {
+    revertToDefault() {
       setState(() {
         if (widget.index == 2) cardThreeChanged = false;
         if (widget.index == 3) cardFourChanged = false;
@@ -152,7 +151,7 @@ class _ProductState extends State<Product> {
                               showDateDialog(context, widget.index);
                               break;
                             case 2:
-                              RevertToDefault();
+                              revertToDefault();
                               break;
                           }
                         },
