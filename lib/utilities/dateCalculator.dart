@@ -12,14 +12,12 @@ String getDate(int number) {
   return formatter.format(now);
 }
 
-/*String getDayFromString(List<String> rangeArray) {
-  DateTime firstRange = DateTime(getDay().rangeArray[0].year,
-      getDay().rangeArray[0].month, getDay().rangeArray[0].day);
-  DateTime secondRange = DateTime(getDay().rangeArray[1].year,
-      getDay().rangeArray[1].month, getDay().rangeArray[1].day);
+String getDayFromString(List<DateTime> array) {
+  DateTime firstDay = DateTime(array[0].year, array[0].month, array[0].day);
+  DateTime lastDay = DateTime(array[1].year, array[1].month, array[1].day);
   final DateFormat formatter = DateFormat('E,dd-MM-yyyy');
-  return formatter.format(firstRange) + '  -  ' + formatter.format(secondRange);
-}*/
+  return formatter.format(firstDay) + '  -  ' + formatter.format(lastDay);
+}
 
 String getMonth() {
   DateTime now = DateTime(getDay().year, getDay().month, getDay().day);

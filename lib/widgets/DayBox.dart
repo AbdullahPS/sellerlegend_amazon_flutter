@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 import 'package:sellerlegend/widgets/table.dart';
 import 'package:sellerlegend/widgets/productSummery.dart';
 import '../utilities/dateCalculator.dart';
@@ -25,28 +26,43 @@ class _ProductState extends State<Product> {
 
   @override
   Widget build(BuildContext context) {
+    String getHeaderText(index) {
+      switch (index) {
+        case 0:
+        case 1:
+          return getDateFromIndex(widget.index);
+        case 2:
+          return cardThreeChanged ? newDate : getDateFromIndex(index);
+        case 3:
+          return cardFourChanged ? newDate : getDateFromIndex(index);
+        default:
+          return '';
+      }
+    }
+
     String getNewDate(DateTimeRange d) {
       List<String> splittedArray = d.toString().split(" - ");
-      //print(splittedArray);
-      splittedArray.forEach((element) {
-        print(element.replaceAll('00:00:00.000', ''));
+      print(splittedArray);
+      List<DateTime> removedZerosArray = splittedArray.map((element) {
         element.replaceAll('00:00:00.000', '');
-      });
+        return DateTime.parse(element);
+      }).toList();
 
-      return splittedArray[0] = splittedArray[1];
+      return getDayFromString(removedZerosArray);
+    }
+
+    RevertToDefault() {
+      print('Reverted to default');
     }
 
     Future<void> showDateDialog(BuildContext context, int index) async {
-      final initialDate = DateTimeRange(
-        start: DateTime.now(),
-        //show initially until a 30 day range from todays date
-        end: DateTime.now().add(Duration(days: 30)),
-      );
+      print("am here");
       final newDateRange = await showDateRangePicker(
         context: context,
         //allow user only to pick 3 years in the past
-        firstDate: DateTime(DateTime.now().year - 3),
-        lastDate: DateTime(DateTime.now().year),
+        firstDate: DateTime(DateTime.now().year),
+        lastDate: DateTime(DateTime.now().year + 1),
+        currentDate: DateTime.now(),
         builder: (context, child) {
           return Theme(
             data: ThemeData.light(),
@@ -64,7 +80,6 @@ class _ProductState extends State<Product> {
             ),
           );
         },
-        // initialDate: DateTime.now(),
       );
       if (newDateRange == null) return;
       dateRange = newDateRange;
@@ -76,7 +91,7 @@ class _ProductState extends State<Product> {
         if (widget.index == 2) cardThreeChanged = true;
         if (widget.index == 3) cardFourChanged = true;
       });
-      //print(dateRange);
+      print(dateRange);
 
       /*mDate first= new mDate(year, month, day);
       mDate second= new mDate(year, month, day);*/
@@ -89,12 +104,12 @@ class _ProductState extends State<Product> {
         if (!cardThreeChanged)
           return cardArray[index];
         else
-          return newDate;
+          return 'Custom Data Range';
       } else if (index == 3) {
         if (!cardFourChanged)
           return cardArray[index];
         else
-          return newDate;
+          return 'Custom Data Range';
       }
       return '';
     }
@@ -121,7 +136,7 @@ class _ProductState extends State<Product> {
                   fit: BoxFit.scaleDown,
                 ),
                 subtitle: FittedBox(
-                  child: Text(getDateFromIndex(widget.index),
+                  child: Text(getHeaderText(widget.index),
                       style: TextStyle(color: Colors.yellow[700])),
                   fit: BoxFit.scaleDown,
                 ),
@@ -131,25 +146,31 @@ class _ProductState extends State<Product> {
                           Icons.list,
                           color: Colors.white70,
                         ),
+                        onSelected: (value) {
+                          switch (value) {
+                            case 1:
+                              showDateDialog(context, widget.index);
+                              break;
+                            case 2:
+                              RevertToDefault();
+                              break;
+                          }
+                        },
                         itemBuilder: (context) => [
                               PopupMenuItem(
-                                child: TextButton(
-                                  child: Text(
-                                    "Change Date Range",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                  onPressed: () =>
-                                      showDateDialog(context, widget.index),
+                                child: Text(
+                                  "Change Date Range",
+                                  style: TextStyle(fontSize: 10),
                                 ),
                                 value: 1,
                               ),
                               PopupMenuItem(
                                 child: Text(
-                                  "Make something else",
+                                  "Revert to default",
                                   style: TextStyle(fontSize: 10),
                                 ),
                                 value: 2,
-                              )
+                              ),
                             ])
                     : null,
               ),
