@@ -258,10 +258,6 @@ class _Example1State extends State<Example1> {
     );
   }
 
-  onChange() {
-    setState(() {});
-  }
-
   filterCars() {
     // Prepare lists
     List<Car> tmp = [];
@@ -309,5 +305,9 @@ class _Example1State extends State<Example1> {
       }
       currentList = tmp;
     }
+  }
+
+  onChange() {
+    setState(() {});
   }
 }

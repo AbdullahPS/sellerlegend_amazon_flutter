@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
-import 'package:sellerlegend/models/product.dart';
+//import 'package:sellerlegend/models/product.dart';
 import '../models/productdummyList.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
@@ -25,6 +25,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   void initState() {
     if (DummyProduct.productInfo.isEmpty) DummyProduct.initData(100);
+    controller.addListener(onChange);
+
     super.initState();
   }
 
@@ -35,6 +37,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   ]);
   @override
   Widget build(BuildContext context) {
+    DummyProduct.searchAllFields(controller.text);
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -55,7 +58,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TextField(
-                //controller: controller),
+                controller: controller,
                 decoration:
                     InputDecoration(fillColor: Colors.orange, filled: true),
               )),
@@ -281,5 +284,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
       ],
     );
+  }
+
+  onChange() {
+    setState(() {});
   }
 }
