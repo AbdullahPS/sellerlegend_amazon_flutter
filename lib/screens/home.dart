@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
 import 'package:sellerlegend/screens/allProducts.dart';
 import 'statistics.dart';
+import 'salesScree.dart';
 
 class Home extends StatelessWidget {
   static const routePathName = 'Home';
@@ -63,7 +64,7 @@ class Home extends StatelessWidget {
                         StatisticsTab(),
                         ProductsScreen(),
                         StatisticsTab(),
-                        StatisticsTab(),
+                        Example1(),
                         StatisticsTab(),
                         StatisticsTab(),
                         StatisticsTab(),

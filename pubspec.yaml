@@ -36,6 +36,10 @@ dependencies:
   flutter_svg: ^0.22.0
   curved_navigation_bar: ^1.0.1
   syncfusion_flutter_datepicker: ^19.2.47
+  material_floating_search_bar: ^0.3.4
+  searchable_category_list: ^0.2.0
+  http: ^0.13.3
+  search_widget: ^1.0.2
 
 dev_dependencies:
   flutter_test:
