@@ -51,40 +51,43 @@ class _ProductsScreenState extends State<ProductsScreen> {
   Widget _getBodyWidget() {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      child: HorizontalDataTable(
-        leftHandSideColumnWidth: screenWidth / 2,
-        rightHandSideColumnWidth: screenWidth / 2,
-        isFixedHeader: true,
-        headerWidgets: _getTitleWidget(),
-        leftSideItemBuilder: _generateFirstColumnRow,
-        rightSideItemBuilder: _generateRightHandSideColumnRow,
-        itemCount: dummy.productInfo.length,
-        rowSeparatorWidget: const Divider(
-          color: Colors.black54,
-          height: 1.0,
-          thickness: 0.0,
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: HorizontalDataTable(
+          leftHandSideColumnWidth: screenWidth / 2,
+          rightHandSideColumnWidth: screenWidth / 2,
+          isFixedHeader: true,
+          headerWidgets: _getTitleWidget(),
+          leftSideItemBuilder: _generateFirstColumnRow,
+          rightSideItemBuilder: _generateRightHandSideColumnRow,
+          itemCount: dummy.productInfo.length,
+          rowSeparatorWidget: const Divider(
+            color: Colors.black54,
+            height: 1.0,
+            thickness: 0.0,
+          ),
+          leftHandSideColBackgroundColor: Color(0xFF2A2D3E),
+          rightHandSideColBackgroundColor: Color(0xFF2A2D3E),
+          verticalScrollbarStyle: const ScrollbarStyle(
+            isAlwaysShown: true,
+            thickness: 4.0,
+            radius: Radius.circular(5.0),
+          ),
+          horizontalScrollbarStyle: const ScrollbarStyle(
+            isAlwaysShown: true,
+            thickness: 4.0,
+            radius: Radius.circular(5.0),
+          ),
+          enablePullToRefresh: true,
+          refreshIndicator: const WaterDropHeader(),
+          refreshIndicatorHeight: 60,
+          onRefresh: () async {
+            //Do sth
+            await Future.delayed(const Duration(milliseconds: 500));
+            _hdtRefreshController.refreshCompleted();
+          },
+          htdRefreshController: _hdtRefreshController,
         ),
-        leftHandSideColBackgroundColor: Color(0xFF2A2D3E),
-        rightHandSideColBackgroundColor: Color(0xFF2A2D3E),
-        verticalScrollbarStyle: const ScrollbarStyle(
-          isAlwaysShown: true,
-          thickness: 4.0,
-          radius: Radius.circular(5.0),
-        ),
-        horizontalScrollbarStyle: const ScrollbarStyle(
-          isAlwaysShown: true,
-          thickness: 4.0,
-          radius: Radius.circular(5.0),
-        ),
-        enablePullToRefresh: true,
-        refreshIndicator: const WaterDropHeader(),
-        refreshIndicatorHeight: 60,
-        onRefresh: () async {
-          //Do sth
-          await Future.delayed(const Duration(milliseconds: 500));
-          _hdtRefreshController.refreshCompleted();
-        },
-        htdRefreshController: _hdtRefreshController,
       ),
       height: MediaQuery.of(context).size.height,
     );
