@@ -13,7 +13,7 @@ class BoxTable extends StatelessWidget {
             Padding(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: SelectableText(
                   'Orders',
                   style: TextStyle(color: Colors.white70),
                 ),
@@ -22,7 +22,7 @@ class BoxTable extends StatelessWidget {
             ),
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),
@@ -34,7 +34,7 @@ class BoxTable extends StatelessWidget {
             Padding(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: SelectableText(
                   'Units',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
@@ -44,7 +44,7 @@ class BoxTable extends StatelessWidget {
             ),
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),
@@ -56,7 +56,7 @@ class BoxTable extends StatelessWidget {
             Padding(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: SelectableText(
                   'Promo',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
@@ -66,7 +66,7 @@ class BoxTable extends StatelessWidget {
             ),
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),
@@ -78,7 +78,7 @@ class BoxTable extends StatelessWidget {
             Padding(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: SelectableText(
                   'Refunds',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
@@ -88,7 +88,7 @@ class BoxTable extends StatelessWidget {
             ),
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),
@@ -100,7 +100,7 @@ class BoxTable extends StatelessWidget {
             Padding(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: SelectableText(
                   'Net Margin',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
@@ -110,7 +110,7 @@ class BoxTable extends StatelessWidget {
             )
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),
@@ -123,7 +123,7 @@ class BoxTable extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: FittedBox(
-                  child: Text(
+                  child: SelectableText(
                     'ROI',
                     style: TextStyle(color: Colors.white70),
                     textAlign: TextAlign.right,
@@ -134,7 +134,7 @@ class BoxTable extends StatelessWidget {
             ),
           ]),
           FittedBox(
-            child: Text(
+            child: SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
             ),

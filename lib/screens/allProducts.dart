@@ -41,7 +41,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             color: Theme.of(context).primaryColor,
             child: tab,
           ),
-        ), //itle: Text(widget.title),
+        ), //itle: SelectableText(widget.title),
 
         body: _getBodyWidget(),
       ),
@@ -129,7 +129,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   Widget _getTitleItemWidget(String label, double width) {
     return Container(
-      child: Text(label,
+      child: SelectableText(label,
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70)),
       width: width,
       height: 56,
@@ -143,7 +143,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       child: ListTile(
         leading: Image.network(
             'https://m.media-amazon.com/images/I/61+4FFxW6iS._AC_SL1284_.jpg'),
-        title: Text(
+        title: SelectableText(
           dummy.productInfo[index].name,
           style: TextStyle(color: Colors.white70),
         ),
@@ -168,7 +168,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   color: dummy.productInfo[index].status
                       ? Colors.red
                       : Colors.green),
-              Text(
+              SelectableText(
                 dummy.productInfo[index].status ? 'Disabled' : 'Active',
                 style: TextStyle(color: Colors.white70),
               )
@@ -180,7 +180,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(
+          child: SelectableText(
             dummy.productInfo[index].sku,
             style: TextStyle(color: Colors.white70),
           ),
@@ -190,7 +190,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(
+          child: SelectableText(
             dummy.productInfo[index].asin,
             style: TextStyle(color: Colors.white70),
           ),
@@ -200,7 +200,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           alignment: Alignment.centerLeft,
         ),
         Container(
-          child: Text(
+          child: SelectableText(
             dummy.productInfo[index].price,
             style: TextStyle(color: Colors.white70),
           ),

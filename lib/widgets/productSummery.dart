@@ -7,7 +7,7 @@ class ProductSummery extends StatelessWidget {
       children: [
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
+          child: SelectableText(
             '100 000',
             style: TextStyle(
               fontSize: 10,
@@ -17,23 +17,24 @@ class ProductSummery extends StatelessWidget {
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text('Ordered Product Sales',
+          child: SelectableText('Ordered Product Sales',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white70)),
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
+          child: SelectableText(
             '100 000',
             style: TextStyle(fontSize: 10, color: Colors.white70),
           ),
         ),
         FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text('Revenue', style: TextStyle(color: Colors.white70))),
+            child: SelectableText('Revenue',
+                style: TextStyle(color: Colors.white70))),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
+          child: SelectableText(
             '100 000',
             style: TextStyle(
               fontSize: 10,
@@ -43,7 +44,7 @@ class ProductSummery extends StatelessWidget {
         ),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
+          child: SelectableText(
             'Estimated Profit',
             style: TextStyle(color: Colors.white70),
           ),

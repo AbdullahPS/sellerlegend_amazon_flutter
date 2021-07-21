@@ -31,12 +31,12 @@ class ListBuilder extends StatelessWidget {
                       size: 15,
                       color: Colors.red,
                     ),
-                    Text(
+                    SelectableText(
                       content[index],
                       style: TextStyle(color: Colors.white70),
                     ),
                     Spacer(),
-                    Text(
+                    SelectableText(
                       'value',
                       textAlign: TextAlign.end,
                       style: TextStyle(color: Colors.white70),
