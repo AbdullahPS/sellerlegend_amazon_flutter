@@ -21,7 +21,8 @@ class Home extends StatelessWidget {
                   height: 250,
                   child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
+                        crossAxisCount: getItemCount(
+                            MediaQuery.of(context).size.width, context),
                         crossAxisSpacing: 25.0,
                         mainAxisSpacing: 25.0,
                         childAspectRatio: MediaQuery.of(context).size.width /
@@ -29,6 +30,7 @@ class Home extends StatelessWidget {
                       ),
                       itemCount: 4,
                       itemBuilder: (BuildContext context, int index) {
+                        print(MediaQuery.of(context).size.width);
                         return Product(index);
                       }),
                 ),
@@ -87,5 +89,15 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  int getItemCount(double width, BuildContext context) {
+    int count = 4;
+    if (MediaQuery.of(context).size.width <= 960 &&
+        MediaQuery.of(context).size.width > 640)
+      count = 3;
+    else if (MediaQuery.of(context).size.width <= 640) count = 2;
+
+    return count;
   }
 }
