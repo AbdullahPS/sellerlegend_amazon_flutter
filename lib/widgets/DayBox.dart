@@ -208,25 +208,6 @@ class _ProductState extends State<Product> {
       ),
     );
   }
-
-  ///TODO: Implement changing date range
-/*  PopupMenuButton(
-      {Key key,
-        @required PopupMenuItemBuilder<T> itemBuilder,
-        T initialValue,
-        PopupMenuItemSelected<T> onSelected,
-        PopupMenuCanceled onCanceled,
-        String tooltip,
-        double elevation,
-        EdgeInsetsGeometry padding: const EdgeInsets.all(8.0),
-        Widget child,
-        Widget icon,
-        Offset offset: Offset.zero,
-        bool enabled: true,
-        ShapeBorder shape,
-        Color color,
-        bool captureInheritedThemes: true}
-      )*/
 }
 
 class mDate {
