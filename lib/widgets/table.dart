@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BoxTable extends StatelessWidget {
-  List<SummaryCard> card = [
+  final List<SummaryCard> card = [
     SummaryCard('Orders', 's'),
     SummaryCard('Units', 's'),
     SummaryCard('Refunds', 's'),
@@ -19,163 +19,123 @@ class BoxTable extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    /* return ListView.builder(
         itemCount: 6,
         itemBuilder: (BuildContext context, int index) {
           SummaryCard current = card.elementAt(index);
           return Container(
-          لإ  height: 20,
-            child: Card(
-              elevation: 4,
-              child: ListTile(
-                title: SelectableText(current.name),
-                // subtitle: Text(current.brand),
-                trailing: SelectableText(current.value.toString() + " \$"),
-                //leading: Text(current.year),
-              ),
-            ),
-          );
-        });
+              height: 10,
+              padding: EdgeInsets.all(100),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60.0),
+                  color: Colors.grey[300]),
+              child: Text(current.name,
+                  style: Theme.of(context).textTheme.display1));
+        });*/
 
-    return Table(
-      border: TableBorder(
-          horizontalInside: BorderSide(
-              width: 2, color: Colors.red, style: BorderStyle.solid)),
-      children: [
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+    return SingleChildScrollView(
+      child: Table(
+        border: TableBorder(
+            horizontalInside: BorderSide(
+                width: 2, color: Colors.red, style: BorderStyle.solid)),
+        children: [
+          TableRow(children: [
+            Column(children: [
+              Padding(
                 child: SelectableText(
                   'Orders',
                   style: TextStyle(color: Colors.white70),
                 ),
+                padding: EdgeInsets.only(top: 3),
               ),
-              padding: EdgeInsets.only(top: 3),
-            ),
-          ]),
-          FittedBox(
-            child: SelectableText(
+            ]),
+            SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+            )
+          ]),
+          TableRow(children: [
+            Column(children: [
+              Padding(
                 child: SelectableText(
                   'Units',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
                 ),
+                padding: EdgeInsets.only(top: 3),
               ),
-              padding: EdgeInsets.only(top: 3),
-            ),
-          ]),
-          FittedBox(
-            child: SelectableText(
+            ]),
+            SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+            )
+          ]),
+          TableRow(children: [
+            Column(children: [
+              Padding(
                 child: SelectableText(
                   'Promo',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
                 ),
+                padding: EdgeInsets.only(top: 3),
               ),
-              padding: EdgeInsets.only(top: 3),
-            ),
-          ]),
-          FittedBox(
-            child: SelectableText(
+            ]),
+            SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+            )
+          ]),
+          TableRow(children: [
+            Column(children: [
+              Padding(
                 child: SelectableText(
                   'Refunds',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
                 ),
+                padding: EdgeInsets.only(top: 3),
               ),
-              padding: EdgeInsets.only(top: 3),
-            ),
-          ]),
-          FittedBox(
-            child: SelectableText(
+            ]),
+            SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+            )
+          ]),
+          TableRow(children: [
+            Column(children: [
+              Padding(
                 child: SelectableText(
                   'Net Margin',
                   style: TextStyle(color: Colors.white70),
                   textAlign: TextAlign.right,
                 ),
-              ),
-              padding: EdgeInsets.only(top: 3),
+                padding: EdgeInsets.only(top: 3),
+              )
+            ]),
+            SelectableText(
+              'b',
+              style: TextStyle(color: Colors.white70),
             )
           ]),
-          FittedBox(
-            child: SelectableText(
-              'b',
-              style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-        TableRow(children: [
-          Column(children: [
-            Padding(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: FittedBox(
-                  child: SelectableText(
-                    'ROI',
-                    style: TextStyle(color: Colors.white70),
-                    textAlign: TextAlign.right,
-                  ),
+          TableRow(children: [
+            Column(children: [
+              Padding(
+                child: SelectableText(
+                  'ROI',
+                  style: TextStyle(color: Colors.white70),
+                  textAlign: TextAlign.right,
                 ),
+                padding: EdgeInsets.only(top: 3),
               ),
-              padding: EdgeInsets.only(top: 3),
-            ),
-          ]),
-          FittedBox(
-            child: SelectableText(
+            ]),
+            SelectableText(
               'b',
               style: TextStyle(color: Colors.white70),
-            ),
-            fit: BoxFit.scaleDown,
-          )
-        ]),
-      ],
+            )
+          ]),
+        ],
+      ),
     );
   }
 }
