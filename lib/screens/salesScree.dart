@@ -79,8 +79,8 @@ class Car {
 
   static final cars = [
     new Car(
-        name: "Jazz",
-        brand: "Honda",
+        name: "Filter",
+        brand: "Alaskaprint",
         type: "gas",
         maxSpeed: 200,
         horsePower: 83,
@@ -89,7 +89,7 @@ class Car {
         price: 2000.00),
     new Car(
         name: "Citigo",
-        brand: "Skoda",
+        brand: "Sanawat",
         type: "gas",
         maxSpeed: 200,
         horsePower: 75,
@@ -97,8 +97,8 @@ class Car {
         selfDriving: false,
         price: 10840.00),
     new Car(
-        name: "Octavia Combi",
-        brand: "Skoda",
+        name: "Filter",
+        brand: "Sanawat",
         type: "diesel",
         maxSpeed: 240,
         horsePower: 149,
@@ -116,7 +116,7 @@ class Car {
         price: 20190.00),
     new Car(
         name: "Q2",
-        brand: "Audi",
+        brand: "Sanawat",
         type: "gas",
         maxSpeed: 280,
         horsePower: 140,
@@ -171,7 +171,7 @@ class _Example1State extends State<Example1> {
       margin: EdgeInsets.only(top: 10),
       child: Column(children: [
         Text(
-          "Search for your car",
+          "Search in any field",
           style: TextStyle(color: Colors.white70),
         ),
         Padding(
@@ -180,7 +180,7 @@ class _Example1State extends State<Example1> {
         ),
         SwitchListTile(
             title: Text(
-              'Selfdriving',
+              'Active ',
               style: TextStyle(color: Colors.white70),
             ),
             value: selfDriving,

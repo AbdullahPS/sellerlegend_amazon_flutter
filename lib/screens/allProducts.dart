@@ -52,7 +52,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
         body: Column(children: [
           Text(
-            "Search for your car",
+            "Search in any fields",
             style: TextStyle(color: Colors.white70),
           ),
           Padding(
