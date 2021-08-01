@@ -30,41 +30,26 @@ class _ProductsScreenState extends State<ProductsScreen> {
     super.initState();
   }
 
-  final tab = new TabBar(tabs: <Tab>[
-    new Tab(text: 'All Products'),
-    new Tab(text: 'All Products'),
-    new Tab(text: 'All Products'),
-  ]);
   @override
   Widget build(BuildContext context) {
     DummyProduct.searchAllFields(controller.text);
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: new PreferredSize(
-          preferredSize: tab.preferredSize,
-          child: new Card(
-            elevation: 26.0,
-            color: Theme.of(context).primaryColor,
-            child: tab,
-          ),
-        ), //itle: SelectableText(widget.title),
+    return Scaffold(
+      //itle: SelectableText(widget.title),
 
-        body: Column(children: [
-          Text(
-            "Search in any fields",
-            style: TextStyle(color: Colors.white70),
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: TextField(
-                controller: controller,
-                decoration:
-                    InputDecoration(fillColor: Colors.orange, filled: true),
-              )),
-          _getBodyWidget()
-        ]),
-      ),
+      body: Column(children: [
+        Text(
+          "Search in any fields",
+          style: TextStyle(color: Colors.white70),
+        ),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: TextField(
+              controller: controller,
+              decoration:
+                  InputDecoration(fillColor: Colors.orange, filled: true),
+            )),
+        _getBodyWidget()
+      ]),
     );
   }
 
