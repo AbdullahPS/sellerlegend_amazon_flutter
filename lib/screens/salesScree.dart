@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-List<Car> initialList = Car.cars;
-List<Car> currentList = [];
+List<Product2> initialList = Product2.product2s;
+List<Product2> currentList = [];
 bool selfDriving = false;
 double maxPrice = 100000;
 String carType = "all";
 final controller = new TextEditingController();
 
 filterCars() {
-  // Prepare lists
+/*  // Prepare lists
   List<Car> tmp = [];
   currentList.clear();
 
@@ -28,7 +28,7 @@ filterCars() {
   if (selfDriving) {
     tmp = [];
     print("filter cars for selfdriving " + selfDriving.toString());
-    for (Car c in currentList) {
+    for (Product2 p in currentList) {
       if (c.selfDriving == selfDriving) {
         tmp.add(c);
       }
@@ -47,91 +47,82 @@ filterCars() {
   if (carType.toLowerCase() != "all") {
     tmp = [];
     print("filter cars for type " + carType);
-    for (Car c in currentList) {
+    for (Car c in cCarurrentList) {
       if (c.type == carType.toLowerCase()) {
         tmp.add(c);
       }
     }
     currentList = tmp;
-  }
+  }*/
 }
 
-class Car {
+//temporararly class will be unified later on ان شاء الله
+class Product2 {
   final String name;
-  final String brand;
-  final String type;
-  final int maxSpeed;
-  final int horsePower;
-  final String year;
-  final bool selfDriving;
+  final String asin;
+  final String sku;
+  final String imageURL;
   final double price;
+  final int salesNum;
 
-  Car({
+  Product2({
     required this.name,
-    required this.brand,
-    required this.type,
-    required this.maxSpeed,
-    required this.horsePower,
-    required this.year,
-    required this.selfDriving,
+    required this.asin,
+    required this.sku,
+    required this.imageURL,
     required this.price,
+    required this.salesNum,
   });
 
-  static final cars = [
-    new Car(
+  static final product2s = [
+    new Product2(
         name: "Filter",
-        brand: "Alaskaprint",
-        type: "gas",
-        maxSpeed: 200,
-        horsePower: 83,
-        year: "2001",
-        selfDriving: false,
-        price: 2000.00),
-    new Car(
-        name: "Citigo",
-        brand: "Sanawat",
-        type: "gas",
-        maxSpeed: 200,
-        horsePower: 75,
-        year: "2011",
-        selfDriving: false,
-        price: 10840.00),
-    new Car(
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
+    new Product2(
         name: "Filter",
-        brand: "Sanawat",
-        type: "diesel",
-        maxSpeed: 240,
-        horsePower: 149,
-        year: "2016",
-        selfDriving: false,
-        price: 32650.00),
-    new Car(
-        name: "Rapid",
-        brand: "Skoda",
-        type: "diesel",
-        maxSpeed: 240,
-        horsePower: 95,
-        year: "2012",
-        selfDriving: false,
-        price: 20190.00),
-    new Car(
-        name: "Q2",
-        brand: "Sanawat",
-        type: "gas",
-        maxSpeed: 280,
-        horsePower: 140,
-        year: "2018",
-        selfDriving: false,
-        price: 28000.00),
-    new Car(
-        name: "Model 3",
-        brand: "Tesla",
-        type: "electric",
-        maxSpeed: 280,
-        horsePower: 140,
-        year: "2018",
-        selfDriving: true,
-        price: 35000),
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
+    new Product2(
+        name: "Filter",
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
+    new Product2(
+        name: "Filter",
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
+    new Product2(
+        name: "Filter",
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
+    new Product2(
+        name: "Filter",
+        asin: "123456",
+        sku: "Amz-sku-1",
+        imageURL:
+            "https://m.media-amazon.com/images/I/91UcJaqi7KL._AC_SL1500_.jpg",
+        price: 19.9,
+        salesNum: 12),
   ];
 }
 
@@ -147,8 +138,8 @@ class Example1 extends StatefulWidget {
 }
 
 class _Example1State extends State<Example1> {
-  List<Car> initialList = Car.cars;
-  List<Car> currentList = [];
+  List<Product2> initialList = Product2.product2s;
+  List<Product2> currentList = [];
 
   //filter
   bool selfDriving = false;
@@ -242,15 +233,19 @@ class _Example1State extends State<Example1> {
           child: ListView.builder(
               itemCount: currentList.length,
               itemBuilder: (BuildContext context, int index) {
-                Car current = currentList.elementAt(index);
+                Product2 current = currentList.elementAt(index);
                 return Card(
                   elevation: 4,
                   child: ListTile(
-                    title: Text(current.name),
-                    subtitle: Text(current.brand),
-                    trailing: Text(current.price.toString() + " \$"),
-                    leading: Text(current.year),
-                  ),
+                      title: Text(current.name),
+                      subtitle: Column(
+                        children: [Text(current.asin), Text(current.sku)],
+                      ),
+                      trailing: Text(current.price.toString() + " \$"),
+                      leading: SizedBox(
+                          height: 100.0,
+                          width: 100.0, // fixed width and height
+                          child: Image.network(current.imageURL))),
                 );
               }),
         ),
@@ -260,7 +255,7 @@ class _Example1State extends State<Example1> {
 
   filterCars() {
     // Prepare lists
-    List<Car> tmp = [];
+    List<Product2> tmp = [];
     currentList.clear();
 
     String name = controller.text;
@@ -268,43 +263,43 @@ class _Example1State extends State<Example1> {
     if (name.isEmpty) {
       tmp.addAll(initialList);
     } else {
-      for (Car c in initialList) {
-        if (c.name.toLowerCase().startsWith(name.toLowerCase())) {
-          tmp.add(c);
+      for (Product2 p in initialList) {
+        if (p.name.toLowerCase().startsWith(name.toLowerCase())) {
+          tmp.add(p);
         }
       }
     }
     currentList = tmp;
 
-    if (selfDriving) {
+    /*   if (selfDriving) {
       tmp = [];
       print("filter cars for selfdriving " + selfDriving.toString());
-      for (Car c in currentList) {
-        if (c.selfDriving == selfDriving) {
-          tmp.add(c);
+      for (Product2 p in currentList) {
+        if (p.selfDriving == selfDriving) {
+          tmp.add(p);
         }
       }
       currentList = tmp;
-    }
+    }*/
 
     print("filter cars for max price " + maxPrice.toString());
     tmp = [];
-    for (Car c in currentList) {
-      if (c.price < maxPrice) {
-        tmp.add(c);
+    for (Product2 p in currentList) {
+      if (p.price < maxPrice) {
+        tmp.add(p);
       }
     }
     currentList = tmp;
-    if (carType.toLowerCase() != "all") {
+    /*  if (carType.toLowerCase() != "all") {
       tmp = [];
       print("filter cars for type " + carType);
-      for (Car c in currentList) {
-        if (c.type == carType.toLowerCase()) {
-          tmp.add(c);
+      for (Product2 p in currentList) {
+        if (p.type == carType.toLowerCase()) {
+          tmp.add(p);
         }
       }
       currentList = tmp;
-    }
+    }*/
   }
 
   onChange() {
