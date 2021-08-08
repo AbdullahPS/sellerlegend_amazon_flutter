@@ -30,7 +30,6 @@ class Home extends StatelessWidget {
                       ),
                       itemCount: 4,
                       itemBuilder: (BuildContext context, int index) {
-                        print(MediaQuery.of(context).size.width);
                         return Product(index);
                       }),
                 ),

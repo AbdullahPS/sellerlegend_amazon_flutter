@@ -595,7 +595,8 @@ class _Example1State extends State<Example1> {
     currentList.clear();
 
     String name = controller.text;
-    print("filter cars for name " + name);
+
+    //  print("filter cars for name " + name);
     if (name.isEmpty) {
       tmp.addAll(initialList);
     } else {
@@ -618,7 +619,7 @@ class _Example1State extends State<Example1> {
       currentList = tmp;
     }*/
 
-    print("filter cars for max price " + maxPrice.toString());
+    //print("filter cars for max price " + maxPrice.toString());
     tmp = [];
     for (Product2 p in currentList) {
       if (p.price < maxPrice) {
