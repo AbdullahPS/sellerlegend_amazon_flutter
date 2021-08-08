@@ -1,4 +1,4 @@
-import 'product.dart';
+import '../models/product.dart';
 
 class DummyProduct {
   static List<Product> initProductInfo = [];

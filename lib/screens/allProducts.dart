@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 //import 'package:sellerlegend/models/product.dart';
-import '../models/productdummyList.dart';
+import '../utilities/productdummyList.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class ProductsScreen extends StatefulWidget {
