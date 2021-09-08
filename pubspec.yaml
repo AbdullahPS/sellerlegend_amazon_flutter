@@ -40,6 +40,7 @@ dependencies:
   searchable_category_list: ^0.2.0
   http: ^0.13.3
   search_widget: ^1.0.2
+  responsive_table: ^0.1.1+8
 
 dev_dependencies:
   flutter_test:

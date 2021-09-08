@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sellerlegend/screens/orders.dart';
 import 'package:sellerlegend/widgets/DayBox.dart';
 import 'package:sellerlegend/screens/allProducts.dart';
 import 'statistics.dart';
@@ -69,8 +70,8 @@ class Home extends StatelessWidget {
                         StatisticsTab(),
                         StatisticsTab(),
                         StatisticsTab(),
-                        StatisticsTab(),
-                        StatisticsTab(),
+                        // StatisticsTab(),
+                        OrdersPage(),
                         Center(
                           child: TextButton(
                             child: Text('Click here'),
